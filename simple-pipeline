@@ -5,10 +5,16 @@ pipeline{
             agent {
                 docker { image 'maven:3.5.2-jdk-8' }
             }
+            steps{
+                sh 'mvn --version'
+            }
         }
         stage ('frontend') {
             agent{
                 docker { image 'node:18' }
+            }
+            steps {
+                sh 'node --version'
             }
         }
     }
