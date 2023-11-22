@@ -1,0 +1,15 @@
+pipeline{
+    agent none
+    stages{
+        stage ('Backend') {
+            agent {
+                docker { image 'maven:3.5.2-jdk-8' }
+            }
+        }
+        stage ('frontend') {
+            agent{
+                docker { image 'node:18' }
+            }
+        }
+    }
+}
